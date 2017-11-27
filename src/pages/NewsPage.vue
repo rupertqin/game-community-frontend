@@ -43,7 +43,6 @@
 
 <script>
 import axios from 'axios'
-import listTpl from '../components/NewsList'
 
 export default {
   name: 'news',
@@ -56,7 +55,7 @@ export default {
       items: {
         BLUE: '#085078',
         DARK: '#373B44',
-        ORANGE: '#D38312'
+        ORANGE: '#D38312',
       },
       dots: {
         textAlign: 'center',
@@ -64,32 +63,32 @@ export default {
         color: '#fff',
         bottom: '40px',
         left: 0,
-        right: 0
-      }
+        right: 0,
+      },
     }
   },
-  beforeRouteEnter (to, from, next) {
-    const result =  axios.get('/api/v2/topics', {responseType: 'json'}).then(function(res){
-      next(function(vm){
-        return vm.post = res.data
-        // vm.setData(null, [])
+  beforeRouteEnter(to, from, next) {
+    axios.get('/api/v2/topics', { responseType: 'json' }).then(function(res) {
+      next(function(vm) {
+        // vm.post = res.data
+        vm.setData(null, res.data)
       })
 
     })
     // if (result.statusCode == 200 && result.body.length) {
     //   next(vm => vm.setData(null, JSON.parse(result.body)))
     // }
-    
+
   },
   methods: {
-    setData (err, post) {
+    setData(err, post) {
       if (err) {
         this.error = err.toString()
       } else {
         this.post = post
       }
-    }
+    },
   },
-  props: ['pageStack']
+  props: [ 'pageStack' ],
 }
 </script>

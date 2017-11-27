@@ -28,50 +28,50 @@
 <script>
 export default {
   name: 'menu',
-  data () {
+  data() {
     return {
       currentPage: 'home',
-      pages: ['home', 'news', 'settings'],
+      pages: [ 'home', 'news', 'settings' ],
       essentialLinks: [
         {
           label: 'Docs',
           link: 'https://onsen.io/v2/docs/guide/vue/',
-          icon: 'fa-book'
+          icon: 'fa-book',
         },
         {
           label: 'Gitter Chat',
           link: 'https://gitter.im/OnsenUI/OnsenUI',
-          icon: 'fa-commenting'
+          icon: 'fa-commenting',
         },
         {
           label: 'Forum',
           link: 'https://community.onsen.io',
-          icon: 'ion-chatboxes'
+          icon: 'ion-chatboxes',
         },
         {
           label: 'Twitter',
           link: 'https://twitter.com/Onsen_UI',
-          icon: 'fa-twitter'
+          icon: 'fa-twitter',
         },
         {
           label: 'Playground',
           link: 'https://tutorial.onsen.io/',
-          icon: 'fa-graduation-cap'
-        }
-      ]
+          icon: 'fa-graduation-cap',
+        },
+      ],
     }
   },
   methods: {
-    goTo (url) {
+    goTo(url) {
       const newWindow = window.open(url, '_blank')
       newWindow.opener = null
       newWindow.location = url
     },
-    linkTo (url) {
+    linkTo() {
       this.currentPage = 'news'
       this.$store.commit('splitter/toggle')
-    }
-  }
+    },
+  },
 }
 </script>
 

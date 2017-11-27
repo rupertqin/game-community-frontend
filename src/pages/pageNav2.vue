@@ -38,7 +38,7 @@
 
 <script>
   export default {
-    props: ['openMenu']
+    props: [ 'openMenu' ],
   };
 
 </script>

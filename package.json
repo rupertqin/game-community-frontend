@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "eslint-config-egg": "^5.1.1",
+    "eslint-plugin-vue-libs": "^1.2.1",
     "onsenui": "~2.7.2",
     "vue": "^2.5.0",
     "vue-onsenui": "~2.3.0",

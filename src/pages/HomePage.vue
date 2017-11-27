@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import pageNav1 from "./pageNav1"
+import pageNav1 from './pageNav1'
 export default {
   name: 'index',
   data() {
@@ -37,7 +37,7 @@ export default {
       items: {
         BLUE: '#085078',
         DARK: '#373B44',
-        ORANGE: '#D38312'
+        ORANGE: '#D38312',
       },
       dots: {
         textAlign: 'center',
@@ -45,15 +45,15 @@ export default {
         color: '#fff',
         bottom: '40px',
         left: 0,
-        right: 0
-      }
+        right: 0,
+      },
     }
   },
   methods: {
     push() {
       this.$emit('push', pageNav1);
-    }
+    },
   },
-  props: ['pageStack']
+  props: [ 'pageStack' ],
 }
 </script>

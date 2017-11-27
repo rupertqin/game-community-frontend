@@ -11,17 +11,27 @@ module.exports = {
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   // extends: 'standard',
+  extends: 'eslint-config-egg',
   // required to lint *.vue files
   plugins: [
-    // 'html'
-  ]
+    'html'
+  ],
   // add your custom rules here
-  // 'rules': {
-  //   // allow paren-less arrow functions
-  //   'arrow-parens': 0,
-  //   // allow async-await
-  //   'generator-star-spacing': 0,
-  //   // allow debugger during development
-  //   'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
-  // }
+  'rules': {
+    // allow paren-less arrow functions
+    'arrow-parens': 2,
+    // allow async-await
+    'generator-star-spacing': 0,
+    'semi': [0, "always"],
+    'comma-dangle': ["warn", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "never",
+      "exports": "never",
+      "functions": "ignore"
+    }],
+    'strict': 2,
+    // allow debugger during development
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+  }
 }

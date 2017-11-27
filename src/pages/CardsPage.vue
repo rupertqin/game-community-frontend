@@ -22,24 +22,24 @@
 </template>
 
 <script>
-import pageNav2 from "./pageNav2"
+import pageNav2 from './pageNav2'
 
 export default {
   name: 'cards',
   methods: {
     push($event) {
-      var cardTitle = $event.target.textContent;
-      var pageToPush = {
+      const cardTitle = $event.target.textContent;
+      const pageToPush = {
         extends: pageNav2,
         data() {
           return {
-            cardTitle: cardTitle
+            cardTitle,
           }
-        }
+        },
       };
       this.$emit('push', pageToPush);
-    }
+    },
   },
-  props: ['openMenu']
+  props: [ 'openMenu' ],
 };
 </script>

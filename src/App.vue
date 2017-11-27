@@ -32,30 +32,28 @@
 
 <script>
 
-import settings from './pages/SettingsPage'
-
 export default {
   name: 'app',
   computed: {
     menuIsOpen: {
-      get () {
+      get() {
         return this.$store.state.splitter.open
       },
-      set (newValue) {
+      set(newValue) {
         this.$store.commit('splitter/toggle', newValue)
-      }
-    }
+      },
+    },
   },
-  data () {
+  data() {
     return {
       openSide: false,
       menuPages: [
-        { label: 'home'},
-        { label: 'news'},
-        { label: 'settings'}
+        { label: 'home' },
+        { label: 'news' },
+        { label: 'settings' },
       ],
       pageStack: [],
-      options: {}
+      options: {},
     }
   },
   components: {
@@ -67,14 +65,14 @@ export default {
     goBack() {
       this.$router.push({ name: this.$route.matched[this.$route.matched.length - 2].name });
     },
-    init(event) {
-    }
+    init() {
+    },
   },
-  created () {
+  created() {
     // const mapRouteStack = route => this.pageStack = route.matched.map(m => m.components.default);
     // mapRouteStack(this.$route);
     // this.$router.beforeEach((to, from, next) => mapRouteStack(to) && next());
-  }
+  },
 }
 </script>
 

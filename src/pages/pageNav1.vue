@@ -30,29 +30,29 @@
 </template>
 
 <script>
-  const pageNav1 =  {
-    created: function () {
-      this.title = this.title && this.title !== '' ? this.title : 'Custom Page';
+  const pageNav1 = {
+    created() {
+      this.title = this.title && this.title !== '' ? this.title : 'Custom Page'
     },
     methods: {
       pop() {
-        this.$emit('pop');
+        this.$emit('pop')
       },
       push() {
-        var title = this.$el.querySelector('ons-input').value;
-        var pageToPush = {
+        const title = this.$el.querySelector('ons-input').value
+        const pageToPush = {
           extends: pageNav1,
           data() {
             return {
-              title: title
+              title,
             }
-          }
-        };
-        this.$emit('push', pageToPush);
-      }
+          },
+        }
+        this.$emit('push', pageToPush)
+      },
     },
-    props: ['openMenu']
-  };
+    props: [ 'openMenu' ],
+  }
 
-  export default pageNav1
+export default pageNav1
 </script>

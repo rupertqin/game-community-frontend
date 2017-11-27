@@ -28,9 +28,9 @@ export default {
       error: null,
     }
   },
-  beforeRouteEnter (to, from, next) {
-    const result =  axios.get('/api/v2/topics', {responseType: 'json'}).then(function(res){
-      next(function(vm){
+  beforeRouteEnter(to, from, next) {
+    axios.get('/api/v2/topics', { responseType: 'json' }).then(function(res) {
+      next(function(vm) {
         vm.setData(null, res.data)
       })
 
@@ -39,16 +39,16 @@ export default {
     // if (result.statusCode == 200 && result.body.length) {
     //   next(vm => vm.setData(null, JSON.parse(result.body)))
     // }
-    
+
   },
   methods: {
-    setData (err, post) {
+    setData(err, post) {
       if (err) {
         this.error = err.toString()
       } else {
         this.post = post
       }
-    }
-  }
+    },
+  },
 };
 </script>

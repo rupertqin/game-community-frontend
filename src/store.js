@@ -8,17 +8,17 @@ export default new Vuex.Store({
     splitter: {
       namespaced: true,
       state: {
-        open: false
+        open: false,
       },
       mutations: {
-        toggle (state, shouldOpen) {
+        toggle(state, shouldOpen) {
           if (typeof shouldOpen === 'boolean') {
             state.open = shouldOpen
           } else {
             state.open = !state.open
           }
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 })

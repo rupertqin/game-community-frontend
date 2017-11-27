@@ -28,45 +28,45 @@
 <script>
 export default {
   name: 'index',
-  data () {
+  data() {
     return {
       tabs: [
         {
           icon: this.md() ? null : 'ion-home',
           label: 'Home',
           props: {
-            myProp: 'This is a page prop!'
+            myProp: 'This is a page prop!',
           },
-          key: 'HomePage'
+          key: 'HomePage',
         },
         {
           icon: this.md() ? null : 'ion-ios-bell',
           label: 'News',
           badge: 7,
-          key: 'NewsPage'
+          key: 'NewsPage',
         },
         {
           icon: this.md() ? null : 'ion-ios-settings',
           label: 'Settings',
-          key: 'SettingsPage'
-        }
-      ]
+          key: 'SettingsPage',
+        },
+      ],
     }
   },
   methods: {
-    md () {
+    md() {
       return this.$ons.platform.isAndroid()
     },
-    init () {
-    }
+    init() {
+    },
   },
   computed: {
-    title () {
-      const index = this.tabs.findIndex((tab, i) => tab.label === this.$route.name)
+    title() {
+      const index = this.tabs.findIndex(tab => tab.label === this.$route.name)
       this.activeIndex = index
       return this.tabs[index].label
-    }
-  }
+    },
+  },
 }
 </script>
 

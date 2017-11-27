@@ -18,21 +18,21 @@ const router = new Router({
         {
           path: 'home',
           name: 'Home',
-          component: HomePage
+          component: HomePage,
         },
         {
           path: 'news',
           name: 'News',
-          component: NewsPage
-        }
-      ]
+          component: NewsPage,
+        },
+      ],
     },
     {
       path: '/settings',
       name: 'Settings',
       component: SettingsPage,
-    }
-  ]
+    },
+  ],
 })
 
 export default router
