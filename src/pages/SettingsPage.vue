@@ -28,17 +28,11 @@ export default {
       error: null,
     }
   },
-  beforeRouteEnter(to, from, next) {
-    axios.get('/api/v2/topics', { responseType: 'json' }).then(function(res) {
-      next(function(vm) {
-        vm.setData(null, res.data)
-      })
-
-    })
-    return;
-    // if (result.statusCode == 200 && result.body.length) {
-    //   next(vm => vm.setData(null, JSON.parse(result.body)))
-    // }
+  async beforeRouteEnter(to, from, next) {
+    const result = await axios.get('/api/v2/topics', { responseType: 'json' })
+    if (result.status === 200 && result.data.length) {
+      next(vm => vm.setData(null, result.data))
+    }
 
   },
   methods: {
