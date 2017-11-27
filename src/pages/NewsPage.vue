@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import got from 'got'
 
 export default {
   name: 'news',
@@ -68,9 +68,9 @@ export default {
     }
   },
   async beforeRouteEnter(to, from, next) {
-    const result = await axios.get('/api/v2/topics', { responseType: 'json' })
-    if (result.status === 200 && result.data.length) {
-      next(vm => vm.setData(null, result.data))
+    const result = await got.get('/api/v2/topics', { json: true })
+    if (result.statusCode === 200 && result.body.length) {
+      next(vm => vm.setData(null, result.body))
     }
 
   },
