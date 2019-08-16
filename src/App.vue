@@ -24,7 +24,8 @@
         @postpush="setOptions({})"
       > 
       </v-ons-navigator>
-      <router-view></router-view>
+      <router-view
+      ></router-view>
     </v-ons-splitter-content>
 
   </v-ons-splitter>
@@ -69,9 +70,12 @@ export default {
     },
   },
   created() {
-    // const mapRouteStack = route => this.pageStack = route.matched.map(m => m.components.default);
-    // mapRouteStack(this.$route);
-    // this.$router.beforeEach((to, from, next) => mapRouteStack(to) && next());
+    const mapRouteStack = route => {
+      this.pageStack = route.matched.map(m => m.components.default);
+      return this.pageStack
+    }
+    mapRouteStack(this.$route);
+    this.$router.beforeEach((to, from, next) => mapRouteStack(to) && next());
   },
 }
 </script>

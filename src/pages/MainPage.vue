@@ -16,6 +16,7 @@
         :key="tab.key"
         :label="tab.label"
         :active="activeIndex === i"
+        :apple="activeIndex"
         :route-name="$route.name"
         @click.prevent="$router.push({name: tab.label})"
       ></v-ons-tab>
@@ -28,6 +29,7 @@
 <script>
 export default {
   name: 'index',
+  props: [ 'pageStack' ],
   data() {
     return {
       tabs: [
@@ -61,10 +63,11 @@ export default {
     },
   },
   computed: {
+    activeIndex() {
+      return this.tabs.findIndex(tab => tab.label === this.$route.name)
+    },
     title() {
-      const index = this.tabs.findIndex(tab => tab.label === this.$route.name)
-      this.activeIndex = index
-      return this.tabs[index].label
+      return this.tabs[this.activeIndex].label
     },
   },
 }

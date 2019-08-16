@@ -21,7 +21,7 @@
 import got from 'got'
 export default {
   name: 'settings',
-  // props: ['openMenu'],
+  // props: [ 'pageStack' ],
   data() {
     return {
       post: [{}],
